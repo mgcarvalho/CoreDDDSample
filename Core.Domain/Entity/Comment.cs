@@ -1,35 +1,64 @@
-﻿
-
+﻿// <copyright file="Comment.cs" company="Academic Lab" >
+//   Copyright (c) Marcelo Carvalho. All rights reserved.
+// </copyright>
+// <author>Marcelo Carvalho</author>
 namespace Core.Domain.Entity
 {
     using System;
 
-    public class Comment:EntityBase
+    /// <summary>
+    /// Comment Entity
+    /// </summary>
+    public class Comment : EntityBase
     {
         #region ctor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Comment"/> class
+        /// </summary>
         public Comment()
         {
-            base.Id = new Guid();
+            this.Id = new Guid();
             this.Create = new DateTime();
             this.Post = new Post();
             this.User = new User();
         }
         #endregion
 
+        /// <summary>
+        /// Gets or sets the reference post of this comment
+        /// </summary>
         public Post Post { get; set; }
 
+        /// <summary>
+        /// Gets or sets the comment text
+        /// </summary>
         public string Text { get; set; }
 
+        /// <summary>
+        /// Gets or sets the date that this comment was created
+        /// </summary>
         public DateTime Create { get; set; }
 
+        /// <summary>
+        /// Gets or sets who makes the comment
+        /// </summary>
         public User User { get; set; }
 
         #region Overrides
+        /// <summary>
+        /// Describes the value class
+        /// </summary>
+        /// <returns>String of object</returns>
         public override string ToString()
         {
-            return $"Id: {base.Id}, Post: {this.Post.ToString()}, Text: {this.Text}, Date: {this.Create.ToString()}, Comment Owner: {this.User.ToString()}.";
+            return $"Id: {this.Id}, Post: {this.Post.ToString()}, Text: {this.Text}, Date: {this.Create.ToString()}, Comment Owner: {this.User.ToString()}.";
         }
-
+        
+        /// <summary>
+        /// Check if objects are equals
+        /// </summary>
+        /// <param name="obj">Object to compare</param>
+        /// <returns>Boolean that if is equal</returns>
         public override bool Equals(object obj)
         {
             if (obj == null || (obj as Comment) == null)
@@ -39,7 +68,7 @@ namespace Core.Domain.Entity
             else
             {
                 Comment compare = obj as Comment;
-                return (base.Id.Equals(compare.Id)
+                return (this.Id.Equals(compare.Id)
                     && this.Post.Equals(compare.Post)
                     && this.Text.Equals(compare.Text, StringComparison.InvariantCultureIgnoreCase))
                     && DateTime.Compare(this.Create, compare.Create) == 0
@@ -47,11 +76,15 @@ namespace Core.Domain.Entity
             }
         }
 
+        /// <summary>
+        /// Get hash code of object
+        /// </summary>
+        /// <returns>Hash code by value fields</returns>
         public override int GetHashCode()
         {
             unchecked
             {
-                int hc = base.Id.GetHashCode();
+                int hc = this.Id.GetHashCode();
                 hc = (hc * 5) + this.Post.GetHashCode();
                 hc = (hc * 5) + this.Text.GetHashCode();
                 hc = (hc * 5) + this.Create.GetHashCode();

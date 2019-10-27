@@ -1,4 +1,8 @@
-﻿namespace Core.Domain.Entity
+﻿// <copyright file="Post.cs" company="Academic Lab" >
+//   Copyright (c) Marcelo Carvalho. All rights reserved.
+// </copyright>
+// <author>Marcelo Carvalho</author>
+namespace Core.Domain.Entity
 {
     using System;
 
@@ -20,6 +24,8 @@
         public DateTime Create { get; set; }
 
         public User User { get; set; }
+
+        public bool Open { get; set; }
 
         #region Overrides
         public override string ToString()

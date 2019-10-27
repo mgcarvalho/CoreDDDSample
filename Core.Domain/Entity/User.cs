@@ -1,4 +1,8 @@
-﻿namespace Core.Domain.Entity
+﻿// <copyright file="User.cs" company="Academic Lab" >
+//   Copyright (c) Marcelo Carvalho. All rights reserved.
+// </copyright>
+// <author>Marcelo Carvalho</author>
+namespace Core.Domain.Entity
 {
     using System;
 

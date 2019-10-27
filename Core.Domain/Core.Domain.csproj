@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DTO\" />
-    <Folder Include="RepositoryContract\" />
+    <PackageReference Include="FluentValidation" Version="8.5.0" />
   </ItemGroup>
 
 </Project>
