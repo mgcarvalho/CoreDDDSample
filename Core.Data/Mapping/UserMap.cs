@@ -30,6 +30,10 @@ namespace Core.Data.Mapping
             builder.Property(c => c.EMail)
                 .IsRequired()
                 .HasColumnName("EMail");
+
+            builder.Property(c => c.IsAdmin)
+                .IsRequired()
+                .HasColumnName("Admin");
         }
     }
 }
