@@ -13,7 +13,7 @@
 
     public class BaseRepository<T> : IRepository<T> where T : EntityBase
     {
-        private MySqlContext context = new MySqlContext();
+        private readonly MySqlContext context = new MySqlContext();
 
         #region Async
         public async Task CreateAsync(T entity)

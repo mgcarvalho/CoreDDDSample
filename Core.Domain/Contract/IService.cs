@@ -6,9 +6,8 @@ namespace Core.Domain.Contract
 {
     using System;
     using System.Collections.Generic;
-
+    using System.Threading.Tasks;
     using Core.Domain.Entity;
-
     using FluentValidation;
 
     /// <summary>
@@ -36,14 +35,8 @@ namespace Core.Domain.Contract
         /// <summary>
         /// Delete an entity
         /// </summary>
-        /// <param name="guid">Guid Identify</param>
-        void Delete(Guid guid);
-
-        /// <summary>
-        /// Delete an entity
-        /// </summary>
-        /// <param name="id">Identify value</param>
-        void Delete(long id);
+        /// <param name="obj">Entity to delete</param>
+        void Delete(T obj);
 
         /// <summary>
         /// Get an entity
@@ -53,16 +46,45 @@ namespace Core.Domain.Contract
         T Get(Guid guid);
 
         /// <summary>
+        /// Get all elements
+        /// </summary>
+        /// <returns>Return all saved elements of an entity</returns>
+        IEnumerable<T> GetAll();
+
+        /// <summary>
+        /// Create a new entrance of entity
+        /// </summary>
+        /// <typeparam name="V">Validation of an entity</typeparam>
+        /// <param name="obj">Entity to save</param>
+        /// <returns>Entity saved</returns>
+        Task<T> PostAsync<V>(T obj) where V : AbstractValidator<T>;
+
+        /// <summary>
+        /// Update an entity
+        /// </summary>
+        /// <typeparam name="V">Validation of an entity</typeparam>
+        /// <param name="obj">Entity to update</param>
+        /// <returns>Entity updated</returns>
+        Task<T> PutAsync<V>(T obj) where V : AbstractValidator<T>;
+
+        /// <summary>
+        /// Delete an entity
+        /// </summary>
+        /// <param name="obj">Entity to delete</param>
+        /// <returns>Entity deleted</returns>
+        Task DeleteAsync(T obj);
+
+        /// <summary>
         /// Get an entity
         /// </summary>
-        /// <param name="id">Identify value</param>
+        /// <param name="guid">Guid Identify</param>
         /// <returns>Returns a specific entity or null, if the conditional doesn't match</returns>
-        T Get(int id);
+        Task<T> GetAsync(Guid guid);
 
         /// <summary>
         /// Get all elements
         /// </summary>
         /// <returns>Return all saved elements of an entity</returns>
-        IList<T> Get();
+        Task<IEnumerable<T>> GetAllAsync();
     }
 }

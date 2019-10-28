@@ -6,33 +6,63 @@ namespace Core.Domain.Entity
 {
     using System;
 
-    public class Post: EntityBase
+    /// <summary>
+    /// User Entity
+    /// </summary>
+    public class Post : EntityBase
     {
         #region ctor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Post"/> class
+        /// </summary>
         public Post()
         {
-            base.Id = new Guid();
+            this.Id = new Guid();
             this.Create = new DateTime();
             this.User = new User();
         }
         #endregion
 
+        /// <summary>
+        /// Gets or sets the subject of post
+        /// </summary>
         public string Subject { get; set; }
 
+        /// <summary>
+        /// Gets or sets the text of post
+        /// </summary>
         public string Text { get; set; }
 
+        /// <summary>
+        /// Gets or sets the date of created
+        /// </summary>
         public DateTime Create { get; set; }
 
+        /// <summary>
+        /// Gets or sets the owner user
+        /// </summary>
         public User User { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the post is open.
+        /// </summary>
         public bool Open { get; set; }
 
         #region Overrides
+        /// <summary>
+        /// Describes the value class
+        /// </summary>
+        /// <returns>String of object</returns>
         public override string ToString()
         {
-            return $"Id: {base.Id}, Subject: {this.Subject}, Text: {this.Text}, Date: {this.Create.ToString()}, Post Owner: {this.User.ToString()}.";
+            return $"Id: {this.Id}, Subject: {this.Subject}, Text: {this.Text}, Date: {this.Create.ToString()}, Post Owner: {this.User.ToString()}.";
         }
 
+        /// <summary>
+        /// Check if objects are equals
+        /// </summary>
+        /// <param name="obj">Object to compare</param>
+        /// <returns>Boolean that if is equal</returns>
         public override bool Equals(object obj)
         {
             if (obj == null || (obj as Post) == null)
@@ -42,19 +72,23 @@ namespace Core.Domain.Entity
             else
             {
                 Post compare = obj as Post;
-                return (base.Id.Equals(compare.Id) 
+                return (this.Id.Equals(compare.Id) 
                     && this.Subject.Equals(compare.Subject, StringComparison.InvariantCultureIgnoreCase) 
                     && this.Text.Equals(compare.Text, StringComparison.InvariantCultureIgnoreCase))
-                    && DateTime.Compare(this.Create, compare.Create)==0
+                    && DateTime.Compare(this.Create, compare.Create) == 0
                     && this.User.Equals(compare.User);
             }
         }
 
+        /// <summary>
+        /// Get hash code of object
+        /// </summary>
+        /// <returns>Hash code by value fields</returns>
         public override int GetHashCode()
         {
             unchecked
             {
-                int hc = base.Id.GetHashCode();
+                int hc = this.Id.GetHashCode();
                 hc = (hc * 5) + this.Subject.GetHashCode();
                 hc = (hc * 5) + this.Text.GetHashCode();
                 hc = (hc * 5) + this.Create.GetHashCode();
@@ -62,8 +96,6 @@ namespace Core.Domain.Entity
                 return hc;
             }
         }
-
         #endregion
-
     }
 }
