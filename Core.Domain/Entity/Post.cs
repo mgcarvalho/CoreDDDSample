@@ -19,7 +19,6 @@ namespace Core.Domain.Entity
         {
             this.Id = new Guid();
             this.Create = new DateTime();
-            this.User = new User();
         }
         #endregion
 
@@ -39,9 +38,14 @@ namespace Core.Domain.Entity
         public DateTime Create { get; set; }
 
         /// <summary>
-        /// Gets or sets the owner user
+        /// Gets or sets the owner name
         /// </summary>
-        public User User { get; set; }
+        public string OwnerName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owner email
+        /// </summary>
+        public string OwnerEmail { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the post is open.
@@ -55,7 +59,7 @@ namespace Core.Domain.Entity
         /// <returns>String of object</returns>
         public override string ToString()
         {
-            return $"Id: {this.Id}, Subject: {this.Subject}, Text: {this.Text}, Date: {this.Create.ToString()}, Post Owner: {this.User.ToString()}.";
+            return $"Id: {this.Id}, Subject: {this.Subject}, Text: {this.Text}, Date: {this.Create.ToString()}, Post Owner: {this.OwnerName}-{this.OwnerEmail}.";
         }
 
         /// <summary>
@@ -75,8 +79,7 @@ namespace Core.Domain.Entity
                 return (this.Id.Equals(compare.Id) 
                     && this.Subject.Equals(compare.Subject, StringComparison.InvariantCultureIgnoreCase) 
                     && this.Text.Equals(compare.Text, StringComparison.InvariantCultureIgnoreCase))
-                    && DateTime.Compare(this.Create, compare.Create) == 0
-                    && this.User.Equals(compare.User);
+                    && DateTime.Compare(this.Create, compare.Create) == 0;
             }
         }
 
@@ -92,7 +95,6 @@ namespace Core.Domain.Entity
                 hc = (hc * 5) + this.Subject.GetHashCode();
                 hc = (hc * 5) + this.Text.GetHashCode();
                 hc = (hc * 5) + this.Create.GetHashCode();
-                hc = (hc * 5) + this.User.GetHashCode();
                 return hc;
             }
         }

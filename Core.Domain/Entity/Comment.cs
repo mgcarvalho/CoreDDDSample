@@ -20,7 +20,6 @@ namespace Core.Domain.Entity
             this.Id = new Guid();
             this.Create = new DateTime();
             this.Post = new Post();
-            this.User = new User();
         }
         #endregion
 
@@ -40,9 +39,14 @@ namespace Core.Domain.Entity
         public DateTime Create { get; set; }
 
         /// <summary>
-        /// Gets or sets who makes the comment
+        /// Gets or sets the owner name
         /// </summary>
-        public User User { get; set; }
+        public string CommentName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owner email
+        /// </summary>
+        public string CommentEmail { get; set; }
 
         #region Overrides
         /// <summary>
@@ -51,7 +55,7 @@ namespace Core.Domain.Entity
         /// <returns>String of object</returns>
         public override string ToString()
         {
-            return $"Id: {this.Id}, Post: {this.Post.ToString()}, Text: {this.Text}, Date: {this.Create.ToString()}, Comment Owner: {this.User.ToString()}.";
+            return $"Id: {this.Id}, Post: {this.Post.ToString()}, Text: {this.Text}, Date: {this.Create.ToString()}, Comment Owner: {this.CommentName}-{this.CommentEmail}.";
         }
         
         /// <summary>
@@ -72,7 +76,8 @@ namespace Core.Domain.Entity
                     && this.Post.Equals(compare.Post)
                     && this.Text.Equals(compare.Text, StringComparison.InvariantCultureIgnoreCase))
                     && DateTime.Compare(this.Create, compare.Create) == 0
-                    && this.User.Equals(compare.User);
+                    && this.CommentName.Equals(compare.CommentName)
+                    && this.CommentName.Equals(compare.CommentEmail);
             }
         }
 
@@ -85,10 +90,11 @@ namespace Core.Domain.Entity
             unchecked
             {
                 int hc = this.Id.GetHashCode();
-                hc = (hc * 5) + this.Post.GetHashCode();
-                hc = (hc * 5) + this.Text.GetHashCode();
-                hc = (hc * 5) + this.Create.GetHashCode();
-                hc = (hc * 5) + this.User.GetHashCode();
+                hc = (hc * 6) + this.Post.GetHashCode();
+                hc = (hc * 6) + this.Text.GetHashCode();
+                hc = (hc * 6) + this.Create.GetHashCode();
+                hc = (hc * 6) + this.CommentName.GetHashCode();
+                hc = (hc * 6) + this.CommentEmail.GetHashCode();
                 return hc;
             }
         }

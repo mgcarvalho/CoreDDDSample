@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Data", "Core.Data\Core
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Application", "Core.Application\Core.Application.csproj", "{55FD99FB-64B8-41A6-B8B0-8515E8CA388A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.ServicesTests", "Core.ServicesTests\Core.ServicesTests.csproj", "{075B9DD3-6008-40AC-9FF9-38600518A5B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.ServicesTests", "Core.ServicesTests\Core.ServicesTests.csproj", "{075B9DD3-6008-40AC-9FF9-38600518A5B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

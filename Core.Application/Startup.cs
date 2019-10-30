@@ -1,20 +1,17 @@
 ﻿namespace Core.Application
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
     using Core.Data;
+    using Core.Data.Repositories;
+    using Core.Data.Repositories.Concrete;
+    using Core.Domain.Entity;
+    using Core.Services.Service;
+    using Core.Services.Service.concrete;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.HttpsPolicy;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Logging;
-    using Microsoft.Extensions.Options;
-
 
     public class Startup
     {
@@ -30,6 +27,12 @@
         {
             string connectionString = Configuration["ConnectionString:MyConnectionString"];
             services.AddDbContext<CoreContext>(options => options.UseMySql(connectionString));
+
+            //DI
+            //Repository
+            services.AddTransient<IRepository<EntityBase>, Repository<EntityBase>>();
+            //Services
+            services.AddScoped<IPostService, PostService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
