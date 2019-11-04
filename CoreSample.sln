@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.MongoDBData", "Core.Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.MemoryData", "Core.MemoryData\Core.MemoryData.csproj", "{B55D41BE-626B-4549-B77E-FFD48BF8587D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.SQLServerData", "Core.SQLServerData\Core.SQLServerData.csproj", "{9E048311-D672-4626-B503-C9E7018122CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{B55D41BE-626B-4549-B77E-FFD48BF8587D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B55D41BE-626B-4549-B77E-FFD48BF8587D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B55D41BE-626B-4549-B77E-FFD48BF8587D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E048311-D672-4626-B503-C9E7018122CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E048311-D672-4626-B503-C9E7018122CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E048311-D672-4626-B503-C9E7018122CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E048311-D672-4626-B503-C9E7018122CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +80,7 @@ Global
 		{075B9DD3-6008-40AC-9FF9-38600518A5B6} = {A176F4D6-9698-4D66-B41C-5C9D4AA17949}
 		{94932672-6332-4E5A-AF9F-D909759FE04B} = {8649CCF9-0E0F-41F0-AD65-86668C994A5E}
 		{B55D41BE-626B-4549-B77E-FFD48BF8587D} = {8649CCF9-0E0F-41F0-AD65-86668C994A5E}
+		{9E048311-D672-4626-B503-C9E7018122CF} = {8649CCF9-0E0F-41F0-AD65-86668C994A5E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {824541FA-9C55-4115-8C6C-758E3C5F8B73}

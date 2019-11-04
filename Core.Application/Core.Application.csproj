@@ -29,6 +29,7 @@
     <ProjectReference Include="..\Core.MemoryData\Core.MemoryData.csproj" />
     <ProjectReference Include="..\Core.MongoDBData\Core.MongoDBData.csproj" />
     <ProjectReference Include="..\Core.Services\Core.Services.csproj" />
+    <ProjectReference Include="..\Core.SQLServerData\Core.SQLServerData.csproj" />
   </ItemGroup>
 
 </Project>

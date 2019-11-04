@@ -31,14 +31,16 @@
             string connectionString = Configuration["ConnectionString:MyConnectionString"];
             services.AddDbContext<CoreContext>(options => options.UseMySql(connectionString));
 
-            //DI
-            //Repository
+            //DI - Repository
             //MySQL
             services.AddTransient<IRepository<EntityBase>, MySQLRepository<EntityBase>>();
+            
             //Memory
             //services.AddTransient<IRepository<EntityBase>, MemoryRepository<EntityBase>>();
             //MongoDB
             //services.AddTransient<IRepository<EntityBase>, MongoDBRepository<EntityBase>>();
+            //SQLServer
+            //services.AddTransient<IRepository<EntityBase>, SQLServerRepository<EntityBase>>();
 
             //Services
             services.AddScoped<IPostService, PostService>();
