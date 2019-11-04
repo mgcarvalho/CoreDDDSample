@@ -1,6 +1,5 @@
 ﻿namespace Core.Services.Service.concrete
 {
-    using Core.Data.Repositories;
     using Core.Domain.Entity;
     using Core.Services.Factory;
     using Core.Services.ViewModel;
@@ -8,6 +7,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using Core.Domain.Repository;
 
     public class PostService : IPostService
     {

@@ -1,4 +1,4 @@
-﻿namespace Core.Data
+﻿namespace Core.MySQLData
 {
     using Microsoft.EntityFrameworkCore;
     using Core.Domain.Entity;

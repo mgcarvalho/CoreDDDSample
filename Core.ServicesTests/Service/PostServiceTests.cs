@@ -10,7 +10,7 @@ namespace Core.Services.Service.Tests
     using Moq;
     using Xunit;
 
-    using Core.Data.Repositories;
+    using Core.Domain.Repository;
     using Core.Domain.Entity;
     using Core.Services.Factory;
     using Core.Services.ViewModel;
@@ -22,7 +22,7 @@ namespace Core.Services.Service.Tests
     public class PostServiceTests
     {
         private readonly Mock<IRepository<Post>> fakeRepository = new Mock<IRepository<Post>>();
-        private readonly PostService postService;
+        private readonly PostService postService; 
 
 
         [Fact(DisplayName = nameof(PostTest_Ok))]

@@ -1,4 +1,4 @@
-﻿namespace Core.Data.Repositories
+﻿namespace Core.Domain.Repository
 {
     using System;
     using System.Collections.Generic;

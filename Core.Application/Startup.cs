@@ -1,9 +1,9 @@
 ﻿namespace Core.Application
 {
-    using Core.Data;
-    using Core.Data.Repositories;
-    using Core.Data.Repositories.Concrete;
     using Core.Domain.Entity;
+    using Core.Domain.Repository;
+    using Core.MySQLData;
+    using Core.MySQLData.Repositories.Concrete;
     using Core.Services.Service;
     using Core.Services.Service.concrete;
     using Microsoft.AspNetCore.Builder;
@@ -25,12 +25,21 @@
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
+            //Context
+            //MySQL
             string connectionString = Configuration["ConnectionString:MyConnectionString"];
             services.AddDbContext<CoreContext>(options => options.UseMySql(connectionString));
 
             //DI
             //Repository
-            services.AddTransient<IRepository<EntityBase>, Repository<EntityBase>>();
+            //MySQL
+            services.AddTransient<IRepository<EntityBase>, MySQLRepository<EntityBase>>();
+            //Memory
+            //services.AddTransient<IRepository<EntityBase>, MemoryRepository<EntityBase>>();
+            //MongoDB
+            //services.AddTransient<IRepository<EntityBase>, MongoDBRepository<EntityBase>>();
+
             //Services
             services.AddScoped<IPostService, PostService>();
 

@@ -1,4 +1,4 @@
-﻿namespace Core.Data.Repositories.Concrete
+﻿namespace Core.MySQLData.Repositories.Concrete
 {
     using System;
     using System.Collections.Generic;
@@ -7,13 +7,14 @@
     using Core.Domain.Entity;
     using Microsoft.EntityFrameworkCore;
     using System.Linq;
+    using Core.Domain.Repository;
 
-    public class Repository<T> : IRepository<T> where T : EntityBase
+    public class MySQLRepository<T> : IRepository<T> where T : EntityBase
     {
 
-        private CoreContext _context;
+        private readonly CoreContext _context;
 
-        public Repository(CoreContext context)
+        public MySQLRepository(CoreContext context)
         {
             _context = context;
         }

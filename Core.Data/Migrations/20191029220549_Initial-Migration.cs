@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Core.Data.Migrations
+namespace Core.MySQLData.Migrations
 {
     public partial class InitialMigration : Migration
     {
